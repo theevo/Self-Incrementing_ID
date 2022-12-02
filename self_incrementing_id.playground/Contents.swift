@@ -2,9 +2,11 @@ import XCTest
 
 class Employee {
     var name: String
+    var id: Int
     
     init(name: String) {
         self.name = name
+        self.id = 0
     }
 }
 
@@ -27,6 +29,13 @@ class FooTests: XCTestCase {
 
         // then
         XCTAssertEqual(sut.name, name)
+    }
+    
+    func test_Employee_hadID() {
+        let name = "Andor"
+        let sut = Employee(name: name)
+        
+        XCTAssertGreaterThanOrEqual(sut.id, 0)
     }
 }
 
