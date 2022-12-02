@@ -1,12 +1,20 @@
 import XCTest
 
 class Employee {
+    static var uniqueId: Int = 0
+    
+    static var nextId: Int {
+        let returnThis = uniqueId
+        uniqueId += 1
+        return returnThis
+    }
+    
     var name: String
     var id: Int
     
     init(name: String) {
         self.name = name
-        self.id = 0
+        self.id = Employee.nextId
     }
 }
 
