@@ -34,13 +34,9 @@ class EmployeeTests: XCTestCase {
     }
     
     func test_Employee_hasName() {
-        // given
         let name = "Andor"
         let sut = Employee(name: name)
 
-        // when
-
-        // then
         XCTAssertEqual(sut.name, name)
     }
     
