@@ -23,7 +23,7 @@ extension Employee: CustomStringConvertible {
     }
 }
 
-class FooTests: XCTestCase {
+class EmployeeTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -86,4 +86,4 @@ struct EmployeeMock {
     }
 }
 
-FooTests.defaultTestSuite.run()
+EmployeeTests.defaultTestSuite.run()
