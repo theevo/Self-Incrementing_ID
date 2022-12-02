@@ -37,6 +37,16 @@ class FooTests: XCTestCase {
         
         XCTAssertGreaterThanOrEqual(sut.id, 0)
     }
+    
+    func test_Employee_id_isUnique() {
+        let name1 = "Andor"
+        let sut1 = Employee(name: name1)
+        
+        let name2 = "Marva"
+        let sut2 = Employee(name: name2)
+        
+        XCTAssertNotEqual(sut1.id, sut2.id, "These employees have the same ID! \(sut1.name) and \(sut2.name) both have ID = \(sut1.id)")
+    }
 }
 
 FooTests.defaultTestSuite.run()
