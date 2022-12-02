@@ -1,6 +1,12 @@
 import XCTest
 
-class Employee { }
+class Employee {
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+}
 
 class FooTests: XCTestCase {
     
@@ -12,17 +18,15 @@ class FooTests: XCTestCase {
         super.tearDown()
     }
     
-    func test0() {
-        XCTFail()
-//        // given
-//        let sut = Employee()
-//
-//        // when
-//        let arr = [2,1]
-//        let result = sut.validMountainArray(arr)
-//
-//        // then
-//        XCTAssertFalse(result)
+    func test_Employee_hasName() {
+        // given
+        let name = "Andor"
+        let sut = Employee(name: name)
+
+        // when
+
+        // then
+        XCTAssertEqual(sut.name, name)
     }
 }
 
