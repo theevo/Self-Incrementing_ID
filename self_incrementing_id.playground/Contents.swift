@@ -4,9 +4,8 @@ class Employee {
     static var uniqueId: Int = 0
     
     static var nextId: Int {
-        let returnThis = uniqueId
-        uniqueId += 1
-        return returnThis
+        defer { uniqueId += 1 }
+        return uniqueId
     }
     
     var name: String
