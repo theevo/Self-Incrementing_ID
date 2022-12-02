@@ -17,6 +17,12 @@ class Employee {
     }
 }
 
+extension Employee: CustomStringConvertible {
+    var description: String {
+        "\(id). \(name)"
+    }
+}
+
 class FooTests: XCTestCase {
     
     override func setUp() {
