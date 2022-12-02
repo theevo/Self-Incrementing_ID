@@ -52,13 +52,37 @@ class FooTests: XCTestCase {
     }
     
     func test_Employee_id_isUnique() {
-        let name1 = "Andor"
-        let sut1 = Employee(name: name1)
+        let employees = EmployeeMock.buildEmployees()
         
-        let name2 = "Marva"
-        let sut2 = Employee(name: name2)
+        let employeesIds = employees.map { employee in
+            employee.id
+        }
         
-        XCTAssertNotEqual(sut1.id, sut2.id, "These employees have the same ID! \(sut1.name) and \(sut2.name) both have ID = \(sut1.id)")
+        let employeeIdsSet: Set<Int> = Set(employeesIds)
+        
+        XCTAssertEqual(employees.count, employeeIdsSet.count)
+    }
+}
+
+struct EmployeeMock {
+    static private let names: [String] = [
+        "Cassian Andor",
+        "Luthen Rael",
+        "Mon Mothma",
+        "Bix Caleen",
+        "Syril Karn",
+        "Saw Gerrera",
+        "Dedra Meero",
+        "Maarva Andor",
+        "Karis Nemik",
+        "Kleya Marki",
+        "Kino Loy",
+    ]
+    
+    static func buildEmployees() -> [Employee] {
+        names.map { name in
+            Employee(name: name)
+        }
     }
 }
 
